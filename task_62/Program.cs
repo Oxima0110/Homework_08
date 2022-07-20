@@ -13,27 +13,22 @@ int[] size = Console.ReadLine()!.Split().Select(int.Parse).ToArray();
 int[,] FillArray(int[] arr)
 {
     int[,] array = new int[arr[0], arr[1]];
-    int iStart = 0;
-    int iEnd = 0;
-    int jStart = 0;
-    int jEnd = 0;
+    int iStep = 0;
     int num = 1;
     int i = 0;
     int j = 0;
     while (num <= array.GetLength(0) * array.GetLength(1))
     {
         array[i, j] = num;
-        if (i == iStart && j < array.GetLength(1) - jEnd - 1) j++;
-        else if (j == array.GetLength(1) - jEnd - 1 && i < array.GetLength(0) - iEnd - 1) i++;
-        else if (i == array.GetLength(0) - iEnd - 1 && j > jStart) j--;
+        if (i == iStep && j < array.GetLength(1) - iStep - 1) j++;
+        else if (j == array.GetLength(1) - iStep - 1 && i < array.GetLength(0) - iStep - 1) i++;
+        else if (i == array.GetLength(0) - iStep - 1 && j > iStep) j--;
         else i--;
 
-        if (i == iStart + 1 && j == jStart)
+        if (i == iStep + 1 && j == iStep)
         {
-            iStart++;
-            iEnd++;
-            jStart++;
-            jEnd++;
+            iStep++;
+
         }
         num++;
     }
