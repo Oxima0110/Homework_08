@@ -25,7 +25,7 @@ int[,] FillArray(int[] arr)
         else if (i == array.GetLength(0) - iStep - 1 && j > iStep) j--;
         else i--;
 
-        if (i == iStep + 1 && j == iStep)
+        if (i == iStep + 1 && j == iStep && iStep != array.GetLength(1) - iStep - 1)
         {
             iStep++;
 
